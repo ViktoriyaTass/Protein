@@ -1,5 +1,9 @@
 import numpy as np
 import random
+import sys
+
+
+
 
 def calculating (random1,random2,op1):
        if op1=="*":
@@ -29,17 +33,21 @@ level=int(input())
 correct=3
 i=0
 while i<correct:
-   random1=random_numbers(level)
-   random2=random_numbers(level)
-   random3=random_numbers(level)
-   op1=random.choice(operator)
-   op2=random.choice(operator)
+   if level ==1 or 2 or 3:
+     random1=random_numbers(level)
+     random2=random_numbers(level)
+     random3=random_numbers(level)
+     op1=random.choice(operator)
+     op2=random.choice(operator)
+   else:
+      exit()
 
    print("What is ("+str(random1) + str(op1) + str(random2)+")" + str(op2) +str(random3) + "?" )
    answer=int(input())
 
    actResult=calculating(random1,random2,op1)
    actResult=calculating(actResult,random3,op2)
+   
 
    if answer==actResult:
       correct=correct-1
